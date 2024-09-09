@@ -556,7 +556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 469649140}
   - component: {fileID: 469649139}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Post Process
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
