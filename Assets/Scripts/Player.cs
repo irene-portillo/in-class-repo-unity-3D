@@ -8,6 +8,13 @@ public class Player : MonoBehaviour
     // PRECOND: moveSpeed <= maxSpeed
     [SerializeField] private float minSpeed;
     [SerializeField] private float maxSpeed;
+    [SerializeField] private GameObject plrSprite;
+    private Animator animator;
+
+    private void Start()
+    {
+        animator = plrSprite.GetComponent<Animator>();
+    }
 
     private void Update()
     {
