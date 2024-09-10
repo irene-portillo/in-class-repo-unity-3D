@@ -10,6 +10,22 @@ public class Player : MonoBehaviour
         HandleMovement();
     }
 
+    private void handleShift(bool isRunning)
+    {
+        
+        if (moveSpeed < maxSpeed && isRunning)
+        {
+            Debug.Log("Pressing shift???");
+            moveSpeed++;
+        }
+        else if(moveSpeed > minSpeed && !isRunning){
+            Debug.Log("Slowing down...");
+            moveSpeed--;
+        }
+        //Debug.Log("Pressing shift???");
+    }
+
+
     private void HandleMovement()
     {
         Vector2 moveVec2 = gameInputManager.GetMovementVectorNormalized();
