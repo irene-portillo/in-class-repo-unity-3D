@@ -12,6 +12,14 @@ public class Player : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            handleShift(true);
+        }
+        else
+        {
+            handleShift(false);
+        }
     }
 
     private void handleShift(bool isRunning)
