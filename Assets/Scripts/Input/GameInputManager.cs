@@ -11,4 +11,6 @@ public class GameInputManager : MonoBehaviour
     }
 
     public Vector2 GetMovementVectorNormalized() => gameInputAction.Player.Move.ReadValue<Vector2>();
+
+    public bool IsShiftPressed() => gameInputAction.Player.Sprint.IsPressed();
 }
