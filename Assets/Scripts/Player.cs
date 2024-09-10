@@ -21,10 +21,12 @@ public class Player : MonoBehaviour
         HandleMovement();
         if (Input.GetKey(KeyCode.LeftShift))
         {
+            animator.SetBool("isRunning", true);
             handleShift(true);
         }
         else
         {
+            animator.SetBool("isRunning", false);
             handleShift(false);
         }
     }
