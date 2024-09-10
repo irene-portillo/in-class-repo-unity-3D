@@ -4,6 +4,10 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
     [SerializeField] private GameInputManager gameInputManager;
+    // PRECOND: minSpeed <= moveSpeed 
+    // PRECOND: moveSpeed <= maxSpeed
+    [SerializeField] private float minSpeed;
+    [SerializeField] private float maxSpeed;
 
     private void Update()
     {
