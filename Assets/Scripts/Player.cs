@@ -7,12 +7,11 @@ public class Player : MonoBehaviour
     [SerializeField] private float sprintSpeed = 20;
     [SerializeField] private GameInputManager gameInputManager;
     [SerializeField] private Animator animator;
+    [SerializeField] private CharacterController characterController;
+    [SerializeField] private GameObject hitVFXPrefab;
     
     private Vector3 cursorDirection;
     
-    private void Awake()
-    {
-    }
 
     private void Update()
     {
@@ -20,6 +19,21 @@ public class Player : MonoBehaviour
         RaycastToCursor();
     }
 
+    public void OnShoot()
+    {
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitinfo))
+        {
+            if (hitinfo.collider.tag == "Target")
+            {
+                Transform target = hitinfo.collider.transform;
+                target.position += transform.forward * 0.2f;
+
+                GameObject vfx = Instantiate(hitVFXPrefab, hitinfo.point, Quaternion.identity);
+                Destroy(vfx, 2);
+            }
+        }
+    }
+    
     /// <summary>
     /// Handle WASD player movement on the xz plane
     /// </summary>
@@ -34,18 +48,15 @@ public class Player : MonoBehaviour
         if (gameInputManager.IsShiftPressed())
         {
             animator.SetBool("Sprint", true);
-            transform.Translate(sprintSpeed * Time.deltaTime * moveVec3);
+            characterController.Move(sprintSpeed * Time.deltaTime * moveVec3);
         }
         else
         {
             animator.SetBool("Sprint", false);
-            transform.Translate(moveSpeed * Time.deltaTime * moveVec3);
+            characterController.Move(moveSpeed * Time.deltaTime * moveVec3);
         }
     }
     
-    /// <summary>
-    /// Raycasts from player position to mouse position and outputs data to hit.
-    /// </summary>
     private void RaycastToCursor()
     {
         Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
