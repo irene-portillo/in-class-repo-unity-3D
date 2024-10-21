@@ -35,7 +35,7 @@ Shader "Unlit/UnlitShaderBasic"
             // the fragment shader
             fixed4 frag (v2f i) : SV_Target
             {
-                return float4(1,1,1,1);
+                return float4(1,.2,0,1);
             }
             ENDCG
         }
