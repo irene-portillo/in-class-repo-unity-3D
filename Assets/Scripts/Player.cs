@@ -1,8 +1,11 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+    
     [SerializeField] private float moveSpeed;
     [SerializeField] private float sprintSpeed = 20;
     [SerializeField] private GameInputManager gameInputManager;
@@ -11,12 +14,31 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject hitVFXPrefab;
     
     private Vector3 cursorDirection;
-    
+
+    private Dictionary<int, AbilitySO> abilities;
+    private AbilitySO[] playerAbilitiesList;
+
+    private void Awake()
+    {
+        Instance = this;
+        
+        playerAbilitiesList = Resources.LoadAll<AbilitySO>("");
+        
+        abilities = new Dictionary<int, AbilitySO>();
+        foreach (AbilitySO ability in playerAbilitiesList)
+        {
+            abilities.Add(ability.ID, ability);
+            ability.SetState(AbilitySO.State.Ready);
+        }
+    }
 
     private void Update()
     {
         HandleMovement();
         RaycastToCursor();
+        
+        foreach (AbilitySO ability in abilities.Values)
+            ability.DecreaseCooldown();
     }
 
     public void OnShoot()
@@ -76,5 +98,18 @@ public class Player : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawRay(transform.position, transform.position + cursorDirection * 10);
+    }
+
+    public void PlayAbility(int abilityID)
+    {
+        if (abilities.TryGetValue(abilityID, out AbilitySO ability))
+        {
+            ability.Activate();
+        }
+    }
+
+    public void SetAnimationTrigger(string trigger)
+    {
+        animator.SetTrigger(trigger);
     }
 }

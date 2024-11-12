@@ -13,6 +13,12 @@ public class GameInputManager : MonoBehaviour
         gameInputAction.Player.Enable();
         
         gameInputAction.Player.Shoot.performed += OnShootPerformed;
+        gameInputAction.Player.Punch.performed += OnPunchPerformed;
+    }
+
+    private void OnPunchPerformed(InputAction.CallbackContext obj)
+    {
+        player.PlayAbility(0);
     }
 
     private void OnShootPerformed(InputAction.CallbackContext obj)
