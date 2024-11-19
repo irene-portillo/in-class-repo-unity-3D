@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 380075508}
   - component: {fileID: 380075507}
   - component: {fileID: 380075506}
+  - component: {fileID: 380075509}
   m_Layer: 0
   m_Name: Sphere Red
   m_TagString: Untagged
@@ -546,6 +547,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380075504}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &380075509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380075504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdade1f615134dc59f122694d54e8611, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 3
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 33.949093
+      outSlope: 33.949093
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.029515058
+      value: 1.0020094
+      inSlope: -3.309164
+      outSlope: -3.309164
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.022834886
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -1.0324832
+      outSlope: -1.0324832
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &469649138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1193,14 +1240,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2111822658}
-  m_LocalRotation: {x: 0.122676045, y: -0.7987808, z: 0.17416233, w: 0.5626433}
-  m_LocalPosition: {x: 1.806, y: 2.139, z: -9.253}
+  m_LocalRotation: {x: 0.3243102, y: -0.67557067, z: 0.46042103, w: 0.47585684}
+  m_LocalPosition: {x: 6.4, y: 14.56, z: -7.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 24.6, y: -109.68, z: 0}
+  m_LocalEulerAnglesHint: {x: 68.551, y: -109.68, z: 0}
 --- !u!114 &2111822662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1225,7 +1272,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 1
   m_Dithering: 1
